@@ -98,7 +98,7 @@ pub fn prebuilt_dir() -> path::PathBuf {
 
 pub fn download_url() -> String {
     format!(
-        "https://github.com/livekit/client-sdk-rust/releases/download/{}/{}.zip",
+        "https://github.com/decentraland/livekit-rust-sdks/releases/download/{}/{}.zip",
         WEBRTC_TAG,
         format!("webrtc-{}", webrtc_triple())
     )
