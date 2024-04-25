@@ -115,7 +115,7 @@ gn gen "$OUTPUT_DIR" --root="src" \
   use_lld=false"
 
 # build static library
-ninja -C "$OUTPUT_DIR" :default \
+ninja -C "$OUTPUT_DIR" framework_objc common_objc videocodec_objc \
   api/audio_codecs:builtin_audio_decoder_factory \
   api/audio_codecs:builtin_audio_encoder_factory \
   api/video_codecs:builtin_video_decoder_factory \
