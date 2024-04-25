@@ -93,7 +93,7 @@ fi
 # generate ninja files
 gn gen "$OUTPUT_DIR" --root="src" \
   --args="is_debug=$debug \
-  enable_dsyms=$debug \
+  enable_dsyms=true \
   target_os=\"ios\" \
   target_cpu=\"$arch\" \
   target_environment=\"$environment\" \
@@ -117,12 +117,16 @@ gn gen "$OUTPUT_DIR" --root="src" \
 # build static library
 ninja -C "$OUTPUT_DIR" :default \
   api/audio_codecs:builtin_audio_decoder_factory \
+  api/audio_codecs:builtin_audio_encoder_factory \
+  api/video_codecs:builtin_video_decoder_factory \
+  api/video_codecs:builtin_video_encoder_factory \
   api/task_queue:default_task_queue_factory \
   sdk:native_api \
   sdk:default_codec_factory_objc \
   pc:peerconnection \
   sdk:videocapture_objc \
-  sdk:framework_objc
+  sdk:framework_objc \
+  sdk:videocodec_objc
 
 # make libwebrtc.a
 # don't include nasm
